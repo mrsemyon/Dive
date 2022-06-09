@@ -5,6 +5,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/changeEmail.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/changePassword.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/checkPassword.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/createPDO.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/deleteUser.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/displayFlashMessage.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/getUserByEmail.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/getUserById.php';
