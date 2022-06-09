@@ -75,7 +75,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
                                             <a class="dropdown-item" href="/public/security.php?id=<?=$user['id']?>">
                                                 <i class="fa fa-lock"></i>
                                             Безопасность</a>
-                                            <a class="dropdown-item" href="status.html">
+                                            <a class="dropdown-item" href="/public/status.php?id=<?=$user['id']?>">
                                                 <i class="fa fa-sun"></i>
                                             Установить статус</a>
                                             <a class="dropdown-item" href="media.html">
