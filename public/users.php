@@ -35,7 +35,9 @@ require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <a class="btn btn-success" href="create_user.html">Добавить</a>
+                    <?php if ($_SESSION['role'] == 'admin') { ?>
+                        <a class="btn btn-success" href="/public/create.php">Добавить</a>
+                    <?php } ?>
                     <div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
                         <input type="text" id="js-filter-contacts" name="filter-contacts" class="form-control shadow-inset-2 form-control-lg" placeholder="Найти пользователя">
                         <div class="btn-group btn-group-lg btn-group-toggle hidden-lg-down ml-3" data-toggle="buttons">
@@ -55,8 +57,8 @@ require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
                         <div id="c_8" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="arica grace">
                             <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
                                 <div class="d-flex flex-row align-items-center">
-                                    <span class="status status-success mr-3">
-                                        <span class="rounded-circle profile-image d-block " style="background-image:url('/assets/img/demo/avatars/<?=$user['photo']?>'); background-size: cover;"></span>
+                                    <span class="status status-<?=$user['status']?> mr-3">
+                                        <span class="rounded-circle profile-image d-block " style="background-image:url('/upload/<?=$user['photo']?>'); background-size: cover;"></span>
                                     </span>
                                     <div class="info-card-text flex-1">
                                         <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
