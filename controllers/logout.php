@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 session_destroy();
 

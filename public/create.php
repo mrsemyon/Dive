@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if ($_SESSION['role'] != 'admin') {
     setFlashMessage('danger', 'You don\'t have enought rights');
@@ -9,7 +9,7 @@ if ($_SESSION['role'] != 'admin') {
 
 $title = "Add user";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
 ?>
     <main id="js-page-content" role="main" class="page-content mt-3">
     <?php if(isset($_SESSION['danger'])):?>

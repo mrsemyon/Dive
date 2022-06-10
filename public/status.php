@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 $pdo = createPDO();
 $user = getUserById($pdo, $_GET['id']);
@@ -19,7 +19,7 @@ $statuses = [
 
 $title = "Set status";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
 ?>
         <div class="subheader">
             <h1 class="subheader-title">
