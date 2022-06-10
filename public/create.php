@@ -1,5 +1,4 @@
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if ($_SESSION['role'] != 'admin') {
@@ -11,7 +10,6 @@ if ($_SESSION['role'] != 'admin') {
 $title = "Add user";
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
-
 ?>
     <main id="js-page-content" role="main" class="page-content mt-3">
     <?php if(isset($_SESSION['danger'])):?>
@@ -152,14 +150,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
             </div>
             <input name="role" type="hidden" value="user">
         </form>
-    </main>
-    <script src="/asseets/js/vendors.bundle.js"></script>
-    <script src="/asseets/js/app.bundle.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-
-        });
-    </script>
-</body>
-</html>
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php';

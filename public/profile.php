@@ -1,5 +1,4 @@
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (! isset($_SESSION['email'])) {
@@ -19,7 +18,6 @@ $user = getUserById($pdo, $_GET['id']);
 $title = "Profile";
 
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
-
 ?>
             <div class="subheader">
                 <h1 class="subheader-title">
@@ -65,14 +63,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
                     </div>
                </div>
             </div>
-        </main>
-    </body>
-    <script src="/assets/js/vendors.bundle.js"></script>
-    <script src="/assets/js/app.bundle.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-
-        });
-    </script>
-</html>
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php';

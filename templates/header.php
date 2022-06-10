@@ -12,6 +12,7 @@
     <link rel="stylesheet" media="screen, print" href="/assets/css/fa-solid.css">
     <link rel="stylesheet" media="screen, print" href="/assets/css/fa-brands.css">
     <link rel="stylesheet" media="screen, print" href="/assets/css/fa-regular.css">
+    <link rel="stylesheet" media="screen, print" href="/assets/css/footer.css">
 </head>
     <body class="mod-bg-1 mod-nav-link">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-primary-gradient">
