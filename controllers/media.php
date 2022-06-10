@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 $pdo = createPDO();
@@ -21,5 +20,5 @@ $photo = (! empty($_FILES['photo']['name']))
 setUserPhoto($pdo, $user['id'], $photo);
 
 setFlashMessage('success', 'The photo has been successfully updated');
-redirect("/public/users.php");
+redirect('/public/users.php');
 exit;

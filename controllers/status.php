@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 $pdo = createPDO();
@@ -14,5 +13,5 @@ if (($_SESSION['role'] != 'admin') && ($_SESSION['email'] != $user['email'])) {
 setUserStatus($pdo, $user['id'], $_POST['status']);
 
 setFlashMessage('success', 'The information has been successfully updated');
-redirect("/public/users.php");
+redirect('/public/users.php');
 exit;

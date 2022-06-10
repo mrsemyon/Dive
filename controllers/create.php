@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if ($_SESSION['role'] != 'admin') {
@@ -12,7 +11,7 @@ $pdo = createPDO();
 
 if (! empty(getUserByEmail($pdo, $_POST['email']))) {
     setFlashMessage('danger', 'This email address is already taken by another user.');
-    redirect("/public/create.php");
+    redirect('/public/create.php');
     exit;
 }
 
@@ -31,5 +30,5 @@ setUserStatus($pdo, $id, $_POST['status']);
 setUserPhoto($pdo, $id, $photo);
 
 setFlashMessage('success', 'User added successfully.');
-redirect("/public/users.php");
+redirect('/public/users.php');
 exit;

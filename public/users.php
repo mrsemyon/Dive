@@ -9,6 +9,7 @@ if (!isset($_SESSION['email'])) {
 
 $pdo = createPDO();
 $users = getUsers($pdo);
+
 $title = 'Users list';
 
 require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';

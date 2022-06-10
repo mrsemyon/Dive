@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (isset($_SESSION['email'])) {
@@ -7,7 +6,6 @@ if (isset($_SESSION['email'])) {
     redirect('/public/users.php');
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

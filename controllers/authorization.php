@@ -1,10 +1,7 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 $pdo = createPDO();
-$password = $_POST['password'];
-
 $data = getUserByEmail($pdo, $_POST['email']);
 
 if (!empty($data)) {
@@ -18,5 +15,5 @@ if (!empty($data)) {
 }
 
 setFlashMessage('danger', 'Incorrect login or password.');
-redirect("/public/authorization.php");
+redirect('/public/authorization.php');
 exit;
