@@ -1,7 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-if ($_SESSION['role'] != 'admin') {
+if (! isAdmin()) {
     setFlashMessage('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;

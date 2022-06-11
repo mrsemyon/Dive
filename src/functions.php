@@ -10,6 +10,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/displayFlashMessage.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/getUserByEmail.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/getUserById.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/getUsers.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/isAdmin.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/prepareUserPhoto.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/redirect.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setFlashMessage.php';
