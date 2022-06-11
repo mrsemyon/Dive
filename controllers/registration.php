@@ -1,6 +1,12 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
+if (isAuthorized()) {
+    setFlashMessage('success', 'You are already registered');
+    redirect('/public/users.php');
+    exit;
+}
+
 $pdo = createPDO();
 
 if (!empty(getUserByEmail($pdo, $_POST['email']))) {

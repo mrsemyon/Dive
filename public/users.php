@@ -1,7 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-if (!isset($_SESSION['email'])) {
+if (! isAuthorized()) {
     setFlashMessage('danger', 'You need to log in');
     redirect('/public/authorization.php');
     exit;

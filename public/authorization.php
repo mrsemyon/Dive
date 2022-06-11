@@ -1,7 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-if (isset($_SESSION['email'])) {
+if (isAuthorized()) {
     setFlashMessage('success', 'You are already authorizeded');
     redirect('/public/users.php');
     exit;

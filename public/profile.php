@@ -1,14 +1,14 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-if (! isset($_SESSION['email'])) {
-    setFlashMessage('danger', 'Необходима авторизация');
+if (! isAuthorized()) {
+    setFlashMessage('danger', 'You need to log in');
     redirect('/public/authorization.php');
     exit;
 }
 
 if (empty($_GET)) {
-    setFlashMessage('danger', 'Не выбран пользователь');
+    setFlashMessage('danger', 'You need to select user');
     redirect('/public/users.php');
     exit;
 }
