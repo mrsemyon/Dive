@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 $pdo = createPDO();
 $user = getUserById($pdo, $_POST['id']);
 
-if (($_SESSION['role'] != 'admin') && ($_SESSION['email'] != $user['email'])) {
+if (! isUserHasRightToChange($user['email'])) {
     setFlashMessage('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
