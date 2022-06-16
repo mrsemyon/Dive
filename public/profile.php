@@ -13,7 +13,7 @@ if (empty($_GET)) {
     exit;
 }
 
-$user = $db->getOne('users', $_GET['id']);
+$user = $db->read('users', $_GET['id']);
 
 $title = "Profile";
 

@@ -7,7 +7,7 @@ if (! isAuthorized()) {
     exit;
 }
 
-$users = $db->getAll('users');
+$users = $db->read('users');
 
 $title = 'Users list';
 
