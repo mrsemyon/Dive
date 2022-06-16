@@ -1,7 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
 $user = $db->read('users', $_GET['id']);
 
 if (! isUserHasRightToChange($user['email'])) {
@@ -10,7 +9,7 @@ if (! isUserHasRightToChange($user['email'])) {
     exit;
 }
 
-deleteUser($pdo, $_GET['id']);
+$db->delete('users', $_GET['id']);
 
 if ($user['photo'] != 'no_photo.jpg') {
     unlink($_SERVER['DOCUMENT_ROOT'] . '/upload/' . $user['photo']);

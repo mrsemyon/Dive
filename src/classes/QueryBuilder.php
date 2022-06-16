@@ -35,4 +35,11 @@ class QueryBuilder
             return $statement->fetchAll();
         }
     }
+
+    public function delete(string $table, int $id): void
+    {
+        $sql = "DELETE FROM $table WHERE id = :id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['id' => $id]);
+    }
 }
