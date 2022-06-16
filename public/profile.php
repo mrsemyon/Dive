@@ -13,8 +13,8 @@ if (empty($_GET)) {
     exit;
 }
 
-$pdo = createPDO();
-$user = getUserById($pdo, $_GET['id']);
+$user = $db->getOne('users', $_GET['id']);
+
 $title = "Profile";
 
 require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';

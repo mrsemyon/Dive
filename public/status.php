@@ -1,8 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
-$user = getUserById($pdo, $_GET['id']);
+$user = $db->getOne('users', $_GET['id']);
 
 if (! isUserHasRightToChange($user['email'])) {
     setFlashMessage('danger', 'You don\'t have enought rights');

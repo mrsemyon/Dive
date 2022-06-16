@@ -1,8 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
-$user = getUserById($pdo, $_GET['id']);
+$user = $db->getOne('users', $_GET['id']);
 
 if (! isUserHasRightToChange($user['email'])) {
     setFlashMessage('danger', 'You don\'t have enought rights');
@@ -41,6 +40,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
                             <div class="panel-hdr">
                                 <h2>Обновление эл. адреса и пароля</h2>
                             </div>
+                            <input hidden type="text" name="id" class="form-control" value="<?=$user['id']?>">
                             <div class="panel-content">
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Email</label>
