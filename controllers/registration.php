@@ -15,7 +15,7 @@ if (!empty(getUserByEmail($pdo, $_POST['email']))) {
     exit;
 }
 
-addUser($pdo, $_POST);
+$db->create('users', $_POST);
 
 $_SESSION['email'] = $_POST['email'];
 $_SESSION['role'] = $_POST['role'];
