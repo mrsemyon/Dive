@@ -21,16 +21,6 @@ $data['photo'] = (! empty($_FILES['photo']['name']))
 
 $db->create('users', $data);
 
-//$id = addUser($pdo, $_POST);
-
-// setUserInfo( $pdo, $id, $_POST);
-
-// setUserSocialLinks($pdo, $id, $_POST);
-
-// setUserStatus($pdo, $id, $_POST['status']);
-
-// setUserPhoto($pdo, $id, $photo);
-
 setFlashMessage('success', 'User added successfully.');
 redirect('/public/users.php');
 exit;
