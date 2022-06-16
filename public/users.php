@@ -7,8 +7,7 @@ if (! isAuthorized()) {
     exit;
 }
 
-$pdo = createPDO();
-$users = getUsers($pdo);
+$users = $db->getAll('users');
 
 $title = 'Users list';
 

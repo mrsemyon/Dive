@@ -8,4 +8,11 @@ class QueryBuilder
     {
         $this->pdo = $pdo;
     }
+
+    public function getAll($table)
+    {
+        $sql = "SELECT * FROM $table";
+        $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
 }

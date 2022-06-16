@@ -3,7 +3,7 @@
 $config = [
     'db'  => [
         'host'      => '127.0.0.1',
-        'db'        => 'oop',
+        'db'        => 'dive',
         'user'      => 'root',
         'pass'      => 'root',
         'charset'   => 'utf8',
