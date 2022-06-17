@@ -31,12 +31,13 @@ class QueryBuilder
         $statement->execute($data);
     }
 
-    public function read(string $table, int $id = NULL): array
+    public function read(string $table, array $condition = NULL)
     {
-        if ($id) {
-            $sql = "SELECT * FROM $table WHERE id = :id";
+        if ($condition) {
+            $key = array_key_first($condition);
+            $sql = "SELECT * FROM $table WHERE $key = :$key";
             $statement = $this->pdo->prepare($sql);
-            $statement->execute(['id' => $id]);
+            $statement->execute($condition);
             return $statement->fetch();
         } else {
             $sql = "SELECT * FROM $table";

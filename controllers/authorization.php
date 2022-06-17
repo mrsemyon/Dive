@@ -7,8 +7,8 @@ if (isAuthorized()) {
     exit;
 }
 
-$pdo = createPDO();
-$data = getUserByEmail($pdo, $_POST['email']);
+$condition['email'] = $_POST['email'];
+$data = $db->read('users', $condition);
 
 if (!empty($data)) {
     if (checkPassword($_POST['password'], $data['password'])) {

@@ -7,9 +7,10 @@ if (isAuthorized()) {
     exit;
 }
 
-$pdo = createPDO();
+$condition['email'] = $_POST['email'];
 
-if (!empty(getUserByEmail($pdo, $_POST['email']))) {
+
+if (!empty($db->read('users', $condition))) {
     setFlashMessage('danger', 'This email address is already taken by another user.');
     redirect('/public/registration.php');
     exit;

@@ -13,7 +13,8 @@ if (empty($_GET)) {
     exit;
 }
 
-$user = $db->read('users', $_GET['id']);
+$condition['id'] = $_GET['id'];
+$user = $db->read('users', $condition);
 
 $title = "Profile";
 

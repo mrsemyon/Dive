@@ -2,7 +2,9 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 $pdo = createPDO();
-$user = $db->read('users', $_POST['id']);
+$condition['id'] = $_POST['id'];
+$user = $db->read('users', $condition);
+unset($condition);
 
 if (! isUserHasRightToChange($user['email'])) {
     setFlashMessage('danger', 'You don\'t have enought rights');
@@ -16,9 +18,12 @@ if (empty($_POST['password']) && ($user['email'] == $_POST['email'])) {
     exit;
 }
 
+$condition['email'] = $_POST['email'];
+$user = $db->read('users', $condition);
+
 if (! empty($_POST['email'])) {
-    if ($_POST['email'] != $user['email']) {
-        if (!empty(getUserByEmail($pdo, $_POST['email']))) {
+    if ($_POST['email'] != $user['email']) {        dd($user);
+        if (!empty($db->read('users', $condition))) {
             setFlashMessage('danger', 'This email address is already taken by another user.');
             redirect('/public/security.php?id=' . $user['id']);
             exit;
