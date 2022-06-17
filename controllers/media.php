@@ -1,7 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
 $user = $db->read('users', $_POST['id']);
 
 if (! isUserHasRightToChange($user['email'])) {
@@ -13,11 +12,12 @@ if ($user['photo'] != 'no_photo.jpg') {
     unlink($_SERVER['DOCUMENT_ROOT'] . '/upload/' . $user['photo']);
 }
 
-$photo = (! empty($_FILES['photo']['name']))
+$data['id'] = $_POST['id'];
+$data['photo'] = (! empty($_FILES['photo']['name']))
 	? prepareUserPhoto($_FILES['photo'])
 	: 'no_photo.jpg';
 
-setUserPhoto($pdo, $user['id'], $photo);
+$db->update('users', $data);
 
 setFlashMessage('success', 'The photo has been successfully updated');
 redirect('/public/users.php');

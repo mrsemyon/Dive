@@ -12,7 +12,3 @@ require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/isUserHasRightToChange.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/prepareUserPhoto.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/redirect.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setFlashMessage.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setUserInfo.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setUserPhoto.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setUserSocialLinks.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/src/functions/setUserStatus.php';

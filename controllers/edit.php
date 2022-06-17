@@ -1,7 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
 $user = $db->read('users', $_POST['id']);
 
 if (! isUserHasRightToChange($user['email'])) {
@@ -18,7 +17,7 @@ foreach ($data as $key => $value) {
     }
 }
 
-setUserInfo($pdo, $_POST['id'], $data);
+$db->update('users', $data);
 
 setFlashMessage('success', 'The information has been successfully updated');
 redirect('/public/users.php');
