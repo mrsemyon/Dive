@@ -1,12 +1,11 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
-$pdo = createPDO();
 $condition['id'] = $_POST['id'];
 $user = $db->read('users', $condition);
 unset($condition);
 
-if (! isUserHasRightToChange($user['email'])) {
+if (!isUserHasRightToChange($user['email'])) {
     setFlashMessage('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
@@ -18,25 +17,27 @@ if (empty($_POST['password']) && ($user['email'] == $_POST['email'])) {
     exit;
 }
 
-$condition['email'] = $_POST['email'];
-$user = $db->read('users', $condition);
-
-if (! empty($_POST['email'])) {
-    if ($_POST['email'] != $user['email']) {        dd($user);
+if (!empty($_POST['email'])) {
+    if ($_POST['email'] != $user['email']) {
+        $condition['email'] = $_POST['email'];
         if (!empty($db->read('users', $condition))) {
             setFlashMessage('danger', 'This email address is already taken by another user.');
             redirect('/public/security.php?id=' . $user['id']);
             exit;
         }
-        changeEmail($pdo, $user['id'], $_POST['email']);
+        $data['id'] = $user['id'];
+        $data['email'] = $_POST['email'];
+        $db->update('users', $data);
         if (($_SESSION['role'] != 'admin') || ($_SESSION['role'] == 'admin' && $user['role'] == 'admin')) {
             $_SESSION['email'] = $_POST['email'];
         }
     }
 }
 
-if (! empty($_POST['password'])) {
-    changePassword($pdo, $user['id'], $_POST['password']);
+if (!empty($_POST['password'])) {
+    $data['id'] = $user['id'];
+    $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $db->update('users', $data);
 }
 
 setFlashMessage('success', 'The information has been successfully updated');

@@ -22,7 +22,7 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function create($table, $data)
+    public function create(string $table, array $data): void
     {
         $keys = implode(', ', array_keys($data));
         $tags = ':' . implode(', :', array_keys($data));
@@ -46,7 +46,7 @@ class QueryBuilder
         }
     }
 
-    public function update($table, $data)
+    public function update(string $table, array $data): void
     {
         $keys = array_keys($data);
         $sql = "UPDATE $table SET ";
