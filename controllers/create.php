@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (! isAdmin()) {
-    setFlashMessage('danger', 'You don\'t have enought rights');
+    FlashMessage::set('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
 }
@@ -10,7 +10,7 @@ if (! isAdmin()) {
 $condition['email'] = $_POST['email'];
 
 if (! empty($db->read('users', $condition))) {
-    setFlashMessage('danger', 'This email address is already taken by another user.');
+    FlashMessage::set('danger', 'This email address is already taken by another user.');
     redirect('/public/create.php');
     exit;
 }
@@ -21,6 +21,6 @@ $data['photo'] = (! empty($_FILES['photo']['name']))
 
 $db->create('users', $data);
 
-setFlashMessage('success', 'User added successfully.');
+FlashMessage::set('success', 'User added successfully.');
 redirect('/public/users.php');
 exit;

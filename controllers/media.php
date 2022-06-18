@@ -5,7 +5,7 @@ $condition['id'] = $_POST['id'];
 $user = $db->read('users', $condition);
 
 if (! isUserHasRightToChange($user['email'])) {
-    setFlashMessage('danger', 'You don\'t have enought rights');
+    FlashMessage::set('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
 }
@@ -20,6 +20,6 @@ $data['photo'] = (! empty($_FILES['photo']['name']))
 
 $db->update('users', $data);
 
-setFlashMessage('success', 'The photo has been successfully updated');
+FlashMessage::set('success', 'The photo has been successfully updated');
 redirect('/public/users.php');
 exit;

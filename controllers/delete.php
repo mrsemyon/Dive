@@ -5,7 +5,7 @@ $condition['id'] = $_GET['id'];
 $user = $db->read('users', $condition);
 
 if (! isUserHasRightToChange($user['email'])) {
-    setFlashMessage('danger', 'You don\'t have enought rights');
+    FlashMessage::set('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
 }
@@ -21,6 +21,6 @@ if ($user['email'] == $_SESSION['email']) {
     redirect('/public/authorization.php');
     exit;
 }
-setFlashMessage('success', 'User deleted successfully');
+FlashMessage::set('success', 'User deleted successfully');
 redirect('/public/users.php');
 exit;

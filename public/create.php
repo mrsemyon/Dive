@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (!isAdmin()) {
-    setFlashMessage('danger', 'You don\'t have enought rights');
+    FlashMessage::set('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
 }
@@ -14,17 +14,17 @@ $title = "Add user";
 require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
 ?>
 <main id="js-page-content" role="main" class="page-content mt-3">
-    <?php if (isset($_SESSION['danger'])) : ?>
+    <?php if (FlashMessage::isSet('danger')) : ?>
         <div class="alert alert-danger text-dark" role="alert">
             <?php
-            displayFlashMessage('danger');
+            FlashMessage::display('danger');
             ?>
         </div>
     <?php endif; ?>
-    <?php if (isset($_SESSION['success'])) : ?>
+    <?php if (FlashMessage::isSet('success')) : ?>
         <div class="alert alert-success text-dark" role="alert">
             <?php
-            displayFlashMessage('success');
+            FlashMessage::display('success');
             ?>
         </div>
     <?php endif; ?>

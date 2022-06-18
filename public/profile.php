@@ -2,13 +2,13 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (! isAuthorized()) {
-    setFlashMessage('danger', 'You need to log in');
+    FlashMessage::set('danger', 'You need to log in');
     redirect('/public/authorization.php');
     exit;
 }
 
 if (empty($_GET)) {
-    setFlashMessage('danger', 'You need to select user');
+    FlashMessage::set('danger', 'You need to select user');
     redirect('/public/users.php');
     exit;
 }

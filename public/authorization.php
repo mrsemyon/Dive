@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (isAuthorized()) {
-    setFlashMessage('success', 'You are already authorizeded');
+    FlashMessage::set('success', 'You are already authorizeded');
     redirect('/public/users.php');
     exit;
 }
@@ -42,10 +42,10 @@ if (isAuthorized()) {
             </a>
         </div>
         <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
-            <?php if (isset($_SESSION['danger'])) { ?>
+            <?php if (FlashMessage::isSet('danger')) { ?>
                 <div class="alert alert-danger text-dark" role="alert">
                     <?php
-                        displayFlashMessage('danger');
+                        FlashMessage::display('danger');
                     ?>
                 </div>
             <?php } ?>

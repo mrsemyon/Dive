@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (! isAuthorized()) {
-    setFlashMessage('danger', 'You need to log in');
+    FlashMessage::set('danger', 'You need to log in');
     redirect('/public/authorization.php');
     exit;
 }
@@ -13,16 +13,16 @@ $title = 'Users list';
 
 require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
 ?>
-            <?php if (isset($_SESSION['danger'])) { ?>
+            <?php if (FlashMessage::isSet('danger')) { ?>
                 <div class="alert alert-danger">
                     <?php
-                        displayFlashMessage('danger');
+                        FlashMessage::display('danger');
                     ?>
                 </div>
-            <?php } else if (isset($_SESSION['success'])) { ?>
+            <?php } else if (FlashMessage::isSet('success')) { ?>
                 <div class="alert alert-success">
                     <?php
-                        displayFlashMessage('success');
+                        FlashMessage::display('success');
                     ?>
                 </div>
             <?php } ?>

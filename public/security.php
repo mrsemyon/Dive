@@ -5,7 +5,7 @@ $condition['id'] = $_GET['id'];
 $user = $db->read('users', $condition);
 
 if (! isUserHasRightToChange($user['email'])) {
-    setFlashMessage('danger', 'You don\'t have enought rights');
+    FlashMessage::set('danger', 'You don\'t have enought rights');
     redirect('/public/users.php');
     exit;
 }
@@ -14,17 +14,10 @@ $title = "Edit credentials";
 
 require $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php';
 ?>
-        <?php if(isset($_SESSION['danger'])):?>
+        <?php if(FlashMessage::isSet('danger')):?>
                 <div class="alert alert-danger text-dark" role="alert">
                     <?php
-                        displayFlashMessage('danger');
-                    ?>
-                </div>
-        <?php endif; ?>
-        <?php if(isset($_SESSION['success'])):?>
-                <div class="alert alert-success text-dark" role="alert">
-                    <?php
-                        displayFlashMessage('success');
+                        FlashMessage::display('danger');
                     ?>
                 </div>
         <?php endif; ?>

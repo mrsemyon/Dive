@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/core.php';
 
 if (isAuthorized()) {
-    setFlashMessage('success', 'You are already authorizeded');
+    FlashMessage::set('success', 'You are already authorizeded');
     redirect('/public/users.php');
     exit;
 }
@@ -12,7 +12,7 @@ $data = $db->read('users', $condition);
 
 if (!empty($data)) {
     if (checkPassword($_POST['password'], $data['password'])) {
-        setFlashMessage('success', 'Authorization was successful.');
+        FlashMessage::set('success', 'Authorization was successful.');
         $_SESSION['email'] = $data['email'];
         $_SESSION['role'] = $data['role'];
         redirect('/public/users.php');
@@ -20,6 +20,6 @@ if (!empty($data)) {
     }
 }
 
-setFlashMessage('danger', 'Incorrect login or password.');
+FlashMessage::set('danger', 'Incorrect login or password.');
 redirect('/public/authorization.php');
 exit;
